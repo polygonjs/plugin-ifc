@@ -1,0 +1,48 @@
+{
+	"name": "@polygonjs/plugin-ifc",
+	"version": "1.5.38",
+	"engines": {
+		"node": ">=16.13.1",
+		"yarn": ">=1.22.15"
+	},
+	"files": [
+		"dist"
+	],
+	"main": "dist/index.es.js",
+	"description": "IFC plugin for the 3D engine https://polygonjs.com",
+	"repository": {
+		"url": "git@github.com:polygonjs/plugin-ifc.git",
+		"type": "git"
+	},
+	"keywords": [
+		"3D",
+		"javascript",
+		"webgl",
+		"procedural",
+		"node-based",
+		"ifc",
+		"bim"
+	],
+	"author": "Guillaume Fradin <gui@polygonjs.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"test": "vite --config vite.config.test.ts"
+	},
+	"dependencies": {
+		"@polygonjs/polygonjs": "^1.5.38",
+		"openbim-components": "1.1.6"
+	},
+	"devDependencies": {
+		"@types/node": "^20.10.1",
+		"@types/qunit": "2.19.4",
+		"@typescript-eslint/eslint-plugin": "6.10.0",
+		"@typescript-eslint/parser": "6.10.0",
+		"prettier": "3.0.3",
+		"qunit": "2.19.4",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.0",
+		"vite-plugin-dts": "^3.6.4"
+	}
+}

@@ -1,23 +1,26 @@
+import {InstancedMesh, Mesh} from 'three';
 import type {QUnit} from '../../../helpers/QUnit';
+import {PolyScene} from '@polygonjs/polygonjs';
 import {ASSETS_ROOT} from '@polygonjs/polygonjs/dist/src/core/loader/AssetsUtils';
 import {totalPointsCount} from '@polygonjs/polygonjs/dist/src/engine/containers/utils/GeometryContainerUtils';
-import {InstancedMesh, Mesh} from 'three';
+import {ExtendedGeoObjNode} from '../../../../src/engine/nodes/obj/ExtendedGeo';
 export function testenginenodessopFileIFC(qUnit: QUnit) {
 	function _url(path: string) {
 		return `${ASSETS_ROOT}${path}`;
 	}
 
 	async function withFile(path: string) {
-		const geo1 = window.geo1;
+		const scene = new PolyScene();
+		const geo1 = scene.createNode('geo') as ExtendedGeoObjNode;
 		const fileNode = geo1.createNode('fileIFC');
 		fileNode.p.url.set(_url(path));
 
 		const container = await fileNode.compute();
-		return {container, fileNode};
+		return {geo1, container, fileNode};
 	}
 
 	qUnit.test('sop/fileIFC simple', async (assert) => {
-		const {fileNode, container} = await withFile('models/ifc/rac_advanced_sample_project.ifc');
+		const {geo1, fileNode, container} = await withFile('models/ifc/rac_advanced_sample_project.ifc');
 		assert.equal(totalPointsCount(container), 717228);
 
 		const foundCategories = fileNode.p.foundCategories.value;
@@ -37,7 +40,7 @@ export function testenginenodessopFileIFC(qUnit: QUnit) {
 		assert.equal((await getPointsCount()).pointsCount, 14637);
 
 		// check that the output can be cloned
-		const transform1 = window.geo1.createNode('transform');
+		const transform1 = geo1.createNode('transform');
 		transform1.setInput(0, fileNode);
 		const containerTransform1 = await transform1.compute();
 		assert.equal(await totalPointsCount(containerTransform1), 14637);
@@ -48,7 +51,7 @@ export function testenginenodessopFileIFC(qUnit: QUnit) {
 		);
 
 		// check that we can use an instancedMeshToMesh
-		const instancedMeshToMesh1 = window.geo1.createNode('instancedMeshToMesh');
+		const instancedMeshToMesh1 = geo1.createNode('instancedMeshToMesh');
 		instancedMeshToMesh1.setInput(0, fileNode);
 		const containerInstancedMeshTomesh = await instancedMeshToMesh1.compute();
 		assert.equal(await totalPointsCount(containerInstancedMeshTomesh), 15213);

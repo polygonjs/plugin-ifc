@@ -26,3 +26,10 @@ export {
 	SimpleRaycaster,
 	FragmentsGroup,
 };
+
+export enum SopFileTypeExtended {
+	FILE_IFC = 'fileIFC',
+}
+export enum GeometryExtensionExtended {
+	IFC = 'ifc',
+}

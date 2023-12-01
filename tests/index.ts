@@ -7,6 +7,12 @@ import {testenginenodessopFileIFC} from './engine/nodes/sop/FileIFC';
 
 setupQUnit(QUnit);
 
+// register nodes for this plugin
+import {Poly} from '@polygonjs/polygonjs/dist/src/engine/Poly';
+import {polyPluginIFC} from '../src/index';
+Poly.registerPlugin(polyPluginIFC);
+
+// test
 testenginenodessopFileIFC(QUnit);
 
 QUnit.start();

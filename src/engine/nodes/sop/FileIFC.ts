@@ -10,15 +10,13 @@ import {FileIFCSopOperation} from '../../operations/sop/FileIFC';
 import {NodeParamsConfig, ParamConfig} from '@polygonjs/polygonjs/dist/src/engine/nodes/utils/params/ParamsConfig';
 import {CoreGroup} from '@polygonjs/polygonjs/dist/src/core/geometry/Group';
 import {Poly} from '@polygonjs/polygonjs/dist/src/engine/Poly';
-import {SopTypeFile} from '@polygonjs/polygonjs/dist/src/engine/poly/registers/nodes/types/Sop';
-import {EXTENSIONS_BY_NODE_TYPE_BY_CONTEXT} from '@polygonjs/polygonjs/dist/src/core/loader/FileExtensionRegister';
-import {NodeContext} from '@polygonjs/polygonjs/dist/src/engine/poly/NodeContext';
 import {getObjectAttributeAllCategoryNames} from '../../../core/geometry/ifc/IFCUtils';
+import {GeometryExtensionExtended, SopFileTypeExtended} from '../../../core/geometry/ifc/IFCCommon';
 const DEFAULT = FileIFCSopOperation.DEFAULT_PARAMS;
 class FileIFCParamsConfig extends NodeParamsConfig {
 	/** @param url to load the geometry from */
 	url = ParamConfig.STRING(DEFAULT.url, {
-		fileBrowse: {extensions: EXTENSIONS_BY_NODE_TYPE_BY_CONTEXT[NodeContext.SOP][SopTypeFile.FILE_IFC]},
+		fileBrowse: {extensions: [GeometryExtensionExtended.IFC]},
 	});
 
 	/** @param sets the matrixAutoUpdate attribute for the objects loaded */
@@ -44,7 +42,7 @@ const ParamsConfig = new FileIFCParamsConfig();
 export class FileIFCSopNode extends TypedSopNode<FileIFCParamsConfig> {
 	override paramsConfig = ParamsConfig;
 	static override type() {
-		return SopTypeFile.FILE_IFC;
+		return SopFileTypeExtended.FILE_IFC;
 	}
 	override dispose(): void {
 		super.dispose();

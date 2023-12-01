@@ -1,13 +1,13 @@
 import {ASSETS_ROOT} from '@polygonjs/polygonjs/dist/src/core/loader/AssetsUtils';
 import {DefaultOperationParams} from '@polygonjs/polygonjs/dist/src/core/operations/_Base';
-import {IFCLoaderHandler} from '@polygonjs/polygonjs/dist/src/core/loader/geometry/IFC';
-import {SopTypeFile} from '@polygonjs/polygonjs/dist/src/engine/poly/registers/nodes/types/Sop';
+import {IFCLoaderHandler} from '../../../core/loader/geometry/IFC';
 import {
 	BaseFileSopOperation,
 	BaseFileSopParams,
 } from '@polygonjs/polygonjs/dist/src/engine/operations/sop/utils/File/_BaseFileOperation';
 import {sanitizeUrl} from '@polygonjs/polygonjs/dist/src/core/UrlHelper';
 import {Object3D} from 'three';
+import {SopFileTypeExtended} from '../../../core/geometry/ifc/IFCCommon';
 
 type IFCModel = Object3D;
 interface FileIFCSopParams extends DefaultOperationParams {
@@ -24,8 +24,8 @@ export class FileIFCSopOperation extends BaseFileSopOperation<IFCModel> {
 		coordinateToOrigin: true,
 		includedCategories: '*',
 	};
-	static override type(): Readonly<SopTypeFile.FILE_IFC> {
-		return SopTypeFile.FILE_IFC;
+	static override type(): Readonly<SopFileTypeExtended.FILE_IFC> {
+		return SopFileTypeExtended.FILE_IFC;
 	}
 
 	protected _createGeoLoaderHandler(params: BaseFileSopParams) {

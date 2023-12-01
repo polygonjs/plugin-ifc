@@ -306,10 +306,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@polygonjs/polygonjs@^1.5.38":
-  version "1.5.38"
-  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.5.38.tgz#070b4b6c4569c67c3feecd7772440342f805c784"
-  integrity sha512-VCf/SDW6VZtOuTxtL/pHp5Cukt2El5oMBc6s1BbsLBDMGKRQcZyIfhkjREW2Zut67LLEJ0WftqfiRRDLljfU6A==
+"@polygonjs/polygonjs@^1.5.41":
+  version "1.5.41"
+  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.5.41.tgz#ceb703c594baca83caa5febf221464bc5d51095f"
+  integrity sha512-5n9kryLCxE0BzyiS0QAFUm6Rkgk7L3DaVmW4B9eoL3J8Fy98TST9FXOZX+oBkAk4tr82CKCJNEuZ7dqewU4Kbw==
   dependencies:
     "@dimforge/rapier3d-compat" "0.11.1"
     "@jscad/modeling" "2.11.0"
@@ -329,7 +329,6 @@
     manifold-3d "2.1.0"
     mapbox-gl "2.13.0"
     n8ao "1.6.8"
-    openbim-components "1.1.6"
     opencascade.js "2.0.0-beta.94e2944"
     opentype.js "1.3.4"
     postprocessing "6.33.2"

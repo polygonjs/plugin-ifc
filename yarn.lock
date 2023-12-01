@@ -306,10 +306,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@polygonjs/polygonjs@^1.5.41":
-  version "1.5.41"
-  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.5.41.tgz#ceb703c594baca83caa5febf221464bc5d51095f"
-  integrity sha512-5n9kryLCxE0BzyiS0QAFUm6Rkgk7L3DaVmW4B9eoL3J8Fy98TST9FXOZX+oBkAk4tr82CKCJNEuZ7dqewU4Kbw==
+"@polygonjs/polygonjs@^1.5.45":
+  version "1.5.45"
+  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.5.45.tgz#64afc67abbac089401ddec6c51378d06e0a15416"
+  integrity sha512-0v7qM/mkXw4dRyiJhswVoqjVNzvAscY5ni865Y3UNqG0UpERrQNn9FD2NZc3/w/+T6EPQIm6BtTca0xFqyWpig==
   dependencies:
     "@dimforge/rapier3d-compat" "0.11.1"
     "@jscad/modeling" "2.11.0"
